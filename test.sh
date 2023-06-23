@@ -1,4 +1,15 @@
 #!/bin/bash
 
-echo "Main branch, no test defined here" >&2
-exit 1
+set -euo pipefail
+IFS=$'\n\t'
+set -vx
+
+mkdir /repository
+cd /repository
+
+get init
+
+[ "$(git log --oneline | wc -l)" -eq "1" ]
+
+exit $?
+
