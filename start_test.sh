@@ -1,13 +1,6 @@
 #!/bin/bash
 
-git branch | grep "${TEST_BRANCH}" &>/dev/null
-
-if [ "$?" -eq "0" ] ; then
-  git checkout "${TEST_BRANCH}" &> /dev/null
-else
-  echo "Branch '${TEST_BRANCH}' does not exists. Checking out 'main'" >&2
-  git checkout 'main' &> /dev/null
-fi
+# Try to checkout the test branch, if it does not exist (even a remote), checkout the main branch as it gives an error.
+git checkout "${TEST_BRANCH}" &>/dev/null || git checkout 'main' &>/dev/null
 
 ./test.sh
-
