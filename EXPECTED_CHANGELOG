@@ -1,0 +1,23 @@
+# Changelog from first commit
+= feat
+- other
+* Add main test which always fails
+* Add test starter
+
+= fix
+- other
+* Fix and simplify branch checkout
+* Fix typo
+* Fix check of branch existence
+
+= test
+- other
+* Implement test for changelog
+
+= docs
+- other
+* Add readme
+
+= chore
+- other
+* Initialize repository

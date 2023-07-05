@@ -1,4 +1,12 @@
 #!/bin/bash
 
-echo "Main branch, no test defined here" >&2
-exit 1
+get changelog > CHANGELOG
+
+diff CHANGELOG EXPECTED_CHANGELOG
+
+result=$?
+
+rm CHANGELOG
+
+exit $result
+
